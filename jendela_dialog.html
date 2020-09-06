@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#5 Jendela Dialog</title>
+	<style>
+		.button1{
+			width: 100%;
+			margin-bottom: 6px;
+			padding: 1px;
+			border-style: groove;
+			/*border: 1px;*/
+			border-color: green;
+		}
+
+		.button2{
+			width: 100%;	
+			margin-bottom: 6px;
+			padding: 1px;
+			border-style: groove;
+			/*border: 1px;*/
+			border-color: blue;
+		}
+
+		.button3{
+			width: 100%;
+			padding: 1px;
+			border-style: groove;
+			/*border: 1px;*/
+			border-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="button1">
+		<button onclick="alert('Ini adalah alert()');">Klik alert()</button>
+	</div>	
+	
+	<div class="button2">
+		<button onclick="funConfirm();">Klik confirm()</button>
+	</div>	
+
+	<div class="button3">
+		<button onclick="funPrompt('Siapakah Nama Anda ?');">Klik prompt()</button>
+	</div>
+
+	<script>
+		function funConfirm(){
+			var yakin = confirm('Anda mau konfirmasi ?');
+
+			if (yakin) {
+				alert("Anda Yakin ! Ahihiihi");
+			}else{
+				alert("Anda Tidak Yakin ! ):");
+			}
+		}
+
+		function funPrompt(message){
+			// format prompt(TITLE, DEFAULT_INPUT_VALUE);
+			var nama = prompt(message, "");
+			if (nama === "") {
+				// Tidak diisi dan OK
+				funPrompt(message+" PLEASE !");
+			}else if(nama === null){
+				// Batal
+				alert("Hi Tuan Tanpa Nama... :P");
+			}else{
+				// Diisi dan OK
+				alert("Hi Tuan "+nama);
+			}
+		}
+	</script>
+</body>
+</html>
