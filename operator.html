@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#6 Operator</title>
+	<style>
+		.button1{
+			width: 100%;
+			margin-top: 6px;
+			margin-bottom: 6px;
+			padding: 1px;
+			border-style: groove;
+			/*border: 1px;*/
+			border-color: green;
+		}
+
+		.button2{
+			width: 100%;	
+			margin-top: 6px;
+			margin-bottom: 6px;
+			padding: 1px;
+			border-style: groove;
+			/*border: 1px;*/
+			border-color: blue;
+		}
+
+		.button3{
+			width: 100%;
+			margin-top: 6px;
+			margin-bottom: 6px;
+			padding: 1px;
+			border-style: groove;
+			/*border: 1px;*/
+			border-color: yellow;
+		}
+
+		#op-bitwise{
+			width: 100%;
+			margin-top: 6px;
+			margin-bottom: 6px;
+			padding: 1px;
+			border-style: groove;
+			/*border: 1px;*/
+			border-color: black;	
+		}
+	</style>
+</head>
+<body>
+	<div class="button1">
+		<button onclick="opAritmatika(2, 3);">Aritmatika</button>
+	</div>	
+	
+	<div class="button2">
+		<button onclick="opPenugasan(2, 3);">Penugasan / Assignment</button>
+	</div>	
+
+	<div class="button3">
+		<button onclick="opPerbandingan(2, 3);">Perbandingan</button>
+	</div>
+
+	<div class="button1">
+		<button onclick="opBitwise();">Bitwise</button>
+	</div>	
+
+	<div class="button2">
+		<button onclick="opTernary(5, 6);">Ternary</button>
+	</div>
+
+	<div class="button3">
+		<button onclick="alert('Kayanya tidak usah, pasti kamu tahu hehhee');">Logika</button>
+	</div>
+
+	<div id="op-bitwise"></div>
+	<script>
+		function opAritmatika(a, b){
+			var pilih = prompt("Ketik operasi : +, -, *, **, / atau % ", "+");
+			// bersihkan semua spasi
+			pilih = pilih.replace(/\s/g,'');
+
+			if (pilih === "+") {
+				hasil = a + b;
+				alert(hasil);
+			}else if(pilih === "-"){
+				hasil = a - b;
+				alert(hasil);
+			}else if(pilih === "*"){
+				hasil = a * b;
+				alert(hasil);
+			}else if(pilih === "**"){
+				hasil = a ** b;
+				alert(hasil);
+			}else if(pilih === "/"){
+				hasil = a / b;
+				alert(hasil);
+			}else if(pilih === "%"){
+				hasil = a % b;
+				alert(hasil);
+			}else{
+				hasil = "";
+				alert("Ketik yang benar dong !");
+			}
+
+			delete hasil;
+		}
+
+		function opPenugasan(a, b){
+			var hasil = 12;
+			hasil -= a;
+			hasil -= b;
+
+			alert("12 - "+a+" - "+b+" = "+hasil);
+		}
+
+		function opPerbandingan(a, b){
+			var pilih = prompt("Ketik operasi : ==, !=, <, <=, >, >=, ===, !==", "==");
+
+			// bersihkan semua spasi
+			pilih = pilih.replace(/\s/g,'');
+
+			var math_it_up = {
+			    '==': function(a, b){
+			    	return a == b;
+			    },
+			    '!=': function(a, b){
+			    	return a != b;
+			    },
+			    '<': function(a, b){
+			    	return a < b;
+			    },
+			    '<=': function(a, b){
+			    	return a <= b;
+			    },
+			    '>': function(a, b){
+			    	return a > b;
+			    },
+			    '>=': function(a, b){
+			    	return a >= b;
+			    },
+			    '===': function(a, b){
+			    	return a === b;
+			    },
+			    '!==': function(a, b){
+			    	return a !== b;
+			    }
+			};
+
+			var hasil = math_it_up[pilih](a, b);
+			alert(a+" "+pilih+" "+b+" = "+hasil);
+		}
+
+		function opBitwise(){
+			  	var x = 4;
+		        var y = 3;
+		        var output = "";
+		        var getBitwiseId = document.getElementById("op-bitwise");
+		        // operator bitwise and
+		        var hasil = x & y;
+		        output += `${x} & ${y} = ${hasil}<br/>`;
+
+		        // operator bitwise or
+		        var hasil = x | y;
+		        output += `${x} | ${y} = ${hasil}<br/>`;
+
+		        // operator bitwise xor
+		        var hasil = x ^ y;
+		        output += `${x} ^ ${y} = ${hasil}<br/>`;
+
+		        // operator negasi
+		        var hasil = ~x;
+		        output += `~${x} = ${hasil}<br/>`;
+		        
+		        // operator bitwise right shift >>
+		        var hasil = x >> y;
+		        output += `${x} >> ${y} = ${hasil}<br/>`;
+
+		        // operator bitwise left shift <<
+		        var hasil = x << y;
+		        output += `${x} << ${y} = ${hasil}<br/>`;
+
+		        // operator bitwise right shift (unsigned) >>>
+		        var hasil = x >>> y;
+		        output += `${x} >>> ${y} = ${hasil}<br/>`;
+
+		        getBitwiseId.innerHTML = output;
+		}
+
+		function opTernary(a, b){
+			var hasil = (a == b) ? "Ya" : "Tidak";
+			var message = a+" == "+b+" "+hasil;
+			alert(message);
+		}
+	</script>
+</body>
+</html>
