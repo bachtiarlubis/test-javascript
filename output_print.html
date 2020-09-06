@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#4 Output Print</title>
+</head>
+<body>
+	<button onclick="sayHello('Ini adalah contoh alert()');">Klik Saya !</button>
+	<hr>
+	<div id="innerHTML-output"></div>
+	<script>
+		// macam2 console untuk menampilkan output ke console
+		console.log("Ini adalah console log");
+		console.debug("Ini adalah console debug");
+		console.info("Ini adalah console info");
+		console.error("Ini adalah console error");
+		console.dir("Ini adalah console dir");
+
+		function sayHello(message){
+			alert(message);
+			document.write("<h2>"+message+"</h2><br>");
+			document.write("<hr>");
+			document.write("<p>Test alert hehehe</p>");
+		}
+
+		var getID = document.getElementById("innerHTML-output");
+		getID.innerHTML = "<b>Ini adalah innerHTML</b>";
+	</script>
+</body>
+</html>
