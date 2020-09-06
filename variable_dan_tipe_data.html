@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#4 Variable dan Tipe Data</title>
+</head>
+<body>
+	<!-- Belajar Mencetak Variable, Membuat Ulang dan Menghapusnya dari Memory -->
+	<script>
+		// Membuat variab;e
+		var nama = "Bachtiar Muhammad Lubis";
+		var legacyName = "The Pride of Lubis"; // contoh camelCase variable
+		var ig = "https://www.instagram.com/bachtiarlubis";
+		var special = "PHP";
+		let contohLet = "Contoh Let IInitial";
+		nonInitial = "Contoh Non Initial";
+		delete nonInitial;
+
+		var vBoolean = false;
+		var nonValue;
+		var vNull = null;
+
+		// Menampilkan alert
+		alert("Selamat datang "+nama);
+
+		// Menampilkan output di halaman HTML
+		document.write("Nama : "+nama+"<br>");
+		document.write("Marga : "+legacyName+"<br>");
+		document.write("Instagram : "+ig+"<br>");
+		document.write("Specialization : "+special+"<br>");
+		document.write("Variable Initial Let : "+contohLet+"<br>");
+		
+		if (typeof nonInitial !== 'undefined') {
+			document.write("Variable Non Initialization : "+nonInitial+"<br>");
+		}else{
+			document.write("Variable Non Initialization : <i>Undefined Boy !</i> <br>");
+		}
+
+		document.write("Variable vBoolean : "+vBoolean+"<br>");
+		document.write("Variable nonValue : "+nonValue+"<br>");
+		document.write("Variable vNull : "+vNull+"<br>");
+	</script>
+</body>
+</html>
