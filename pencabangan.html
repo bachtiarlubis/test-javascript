@@ -1,9 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>#7 Pencabangan</title>
+	<title>#7 Pencabangan IF, Switch Case dan Ternary Operator</title>
 </head>
 <body>
+	<script>
+		// Contoh if else if else
+		/*var inputUser = prompt("Input total belanja", 0);
 
+		if (inputUser >= 100000) 
+			alert("Selamat anda mendapatkan reward utama !");
+		else if(inputUser >= 50000)
+			alert("Selamat anda mendapatkan reward reguler !");
+		else
+			alert("Terimakasih telah berbelanja");*/
+		// END
+
+		// Contoh Switch Case
+		/*var inputUser2 = prompt("Pilih Reward Anda dari 1 Sampai 5", 1);
+		inputUser2 = Number(inputUser2);
+		switch(inputUser2){
+			case 1:
+				alert("Anda Mendapatkan PC Allien Ware !");
+				break;
+			case 2:
+				alert("Anda Mendapatkan Laptop ROG !");
+				break;
+			case 3:
+				alert("Anda Mendapakan iPhone X !");
+				break;
+			case 4:
+				alert("Anda Mendapatkan Samsung Galaxy S8 !");
+				break;
+			case 5:
+				alert("Anda Mendapatkan Satu Lusin Piring Cantik !");
+				break;
+			default:
+				alert("Abang tahu angka 1 sampai 5 ?");
+		}*/
+		// END
+
+		// Contoh Ternary Operator
+		/*var inputUser3 = prompt("5 ** 5 = ?", 0); // 3.125
+		inputUser3 = Number(inputUser3);
+		var hasil = (5**5 == inputUser3) ? alert("Ya benar jawabannya "+inputUser3) : alert("Maaf jawabannya bukan "+inputUser3);*/
+
+		// Contoh Nested If else
+		var username = prompt("Masukkan Username : ");
+		var password = prompt("Masukkan Password : ");
+
+		if (username == "bachtiarlubis") {
+			if (password == "bachtiar") {
+				document.write("<h2>Selamat Datang Paduka "+username+"</h2>");
+			}else{
+				alert("Password anda salah !");
+			}
+		}else{
+			alert("Username anda tidak terdaftar !");
+		}
+
+		
+	</script>
 </body>
 </html>
