@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#8 Perulangan For, Foreach, Repeat | While, Do While</title>
+	<style>
+		#output{
+			width: 100%;
+			border-style: groove;
+			border-color: green;
+			margin-top: 30px;
+			margin-bottom: 30px;
+			padding-left: 10px;
+		}
+
+		.button1{
+			margin-bottom: 5px;	
+			margin-top: 5px;
+		}
+
+		.button2{
+			margin-top: 5px;
+			margin-bottom: 5px;	
+		}
+	</style>
+</head>
+<body>
+	<div class="button1">
+		<button onclick="myFor(10, 'increment')">Increment For Loop</button>
+		<button onclick="myFor(10, 'decrement')">Decrement For Loop</button>
+	</div>
+
+	<div class="button2">
+		<button onclick="myWhile(10, 'increment')">Increment While Loop</button>
+		<button onclick="myWhile(10, 'decrement')">Decrement While Loop</button>
+	</div>
+
+	<div class="button1">
+		<button onclick="myDoWhile(10, 'increment')">Increment Do While Loop</button>
+		<button onclick="myDoWhile(10, 'decrement')">Decrement Do While Loop</button>
+	</div>
+
+	<div class="button2">
+		<button onclick="myForeach(['Bachtiar', 'Muhammad', 'Lubis', 'Bani', 'Israil'], 'in')">In Foreach Loop</button>
+		<button onclick="myForeach(['Bachtiar', 'Muhammad', 'Lubis', 'Bani', 'Israil'], 'foreach')">forEach() Foreach Loop</button>
+	</div>
+
+	<div class="button1">
+		<button onclick="myRepeat(10)">Repeat Loop</button>
+	</div>
+
+	<div id="output"></div>
+
+	<script>
+		// for loop
+		function myFor(max, assignOp){
+			var output = "<h3>For Loop</h3>";
+			var getId = document.getElementById("output");
+			if (assignOp == "increment") {
+				for (let i = 0; i <= max; i++) {
+					output += "i = "+i+"<br>";
+				}
+				getId.innerHTML = output;
+			}else if (assignOp == "decrement") {
+				for (let i = max; i >= 0; i--) {
+					output += "i = "+i+"<br>";
+				}
+				getId.innerHTML = output;
+			}else{
+				alert("Your for loop type is not recognized !");
+			}
+		}
+
+		// while loop
+		function myWhile(max, assignOp){
+			var ulangi = confirm("Anda ingin melakukan while sebanyak "+max+" secara "+assignOp);
+			var output = "Perulangan dilakukan sebanyak ";
+			var getId = document.getElementById("output");
+			
+			var i = 0;
+			if (assignOp == "increment") {
+				while(ulangi) {
+					i++;
+					ulangi = confirm("Anda ingin melanjutkan perulangan ke-"+i);
+				}
+				
+			}else if (assignOp == "decrement") {
+				i = 100;
+				while(ulangi) {
+					i--;
+					ulangi = confirm("Anda ingin melanjutkan perulangan ke-"+i);
+					
+					if (i == 0) {
+						ulangi = false;
+					}
+				}
+
+			}else{
+				alert("Your for loop type is not recognized !");
+			}
+			getId.innerHTML = output+i;
+		}
+
+		// do while loop
+		function myDoWhile(max, assignOp){
+			var ulangi = confirm("Anda ingin melakukan while sebanyak "+max+" secara "+assignOp);
+			var output = "Perulangan dilakukan sebanyak ";
+			var getId = document.getElementById("output");
+			
+			var i = 0;
+			if (assignOp == "increment") {
+				do{
+					i++;
+					ulangi = confirm("Anda ingin melanjutkan perulangan ke-"+i);
+				}while(ulangi)
+				
+			}else if (assignOp == "decrement") {
+				i = 100;
+				do{
+					i--;
+					ulangi = confirm("Anda ingin melanjutkan perulangan ke-"+i+" max");
+					
+					if (i == 0) {
+						ulangi = false;
+					}
+				}while(ulangi)
+
+			}else{
+				alert("Your for loop type is not recognized !");
+			}
+			getId.innerHTML = output+i;
+		}
+
+		// foreach loop
+		function myForeach(theArr, method){
+			var output = "";
+			var getId = document.getElementById("output");
+			if (method == "in") {
+				// dengan operator in
+				for(i in theArr){
+				    output += i+". "+ theArr[i] + "<br/>";
+				}
+			}else if (method == "foreach") {
+				// dengan method forEach()
+				// cara 1
+				var i = 0;
+				/*theArr.forEach(function(name){
+				    output += i+" " + name + "<br/>";
+				    i++;
+				});*/
+
+				// cara 2
+				theArr.forEach((name) => {
+				    output += i+" " + name + "<br/>";
+				    i++;
+				});
+			}else{
+				alert("Your for loop type is not recognized !");
+			}
+
+			getId.innerHTML = output;
+		}
+
+		// Repeat loop
+		function myRepeat(max){
+			// hanya bekerja pada string !
+			var output = `The Repeat up to ${max} <br>`.repeat(max);
+			var getId = document.getElementById("output");
+			getId.innerHTML = output;
+		}
+	</script>
+
+</body>
+</html>
