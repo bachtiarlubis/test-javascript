@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#9.1 Struktur Data | Array</title>
+</head>
+<body>
+	<button onclick="myWhile('pop');">Run POP</button>
+	<button onclick="myWhile('shift');">Run SHIFT</button>
+	
+	<br><br>
+
+	<script>
+		var myArr = ["Bachtiar", "Muhammad", "Lubis"];
+		var myArr2 = [12, 1.5, "Lubis", true, 'X'];
+
+		document.write("Menampilkan data Array<br>");
+		document.write("<ol>");
+		myArr2.forEach((data) => {
+			// document.write("<i>"+data+"</i>");
+			document.write(`<li>${data}</li>`);
+		});
+		document.write("</ol>");
+
+		/*myArr2.forEach(function(data){
+			document.write(data+"<br>");
+		});*/
+
+		// Contoh array push
+		document.write("Menambahkan data ke Dalam Array<br>");
+		document.write("<ol>");
+		myArr.push(2, 3.2, "Bani", "Israil", false);
+		myArr.forEach((data) => {
+			document.write(`<li>${data}</li>`);
+		});
+		document.write("</ol>");
+		
+		// Contoh array slice
+		document.write("Array Slice<br>");
+		myArr.splice(2, 3);
+		document.write("<ol>");
+		myArr.forEach((data) => {
+			document.write(`<li>${data}</li>`);
+		});
+		document.write("</ol>");
+
+		// Contoh array Pop dan array Shift
+		function myPop(myArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']){
+			myArr.pop();
+			return myArr;
+		}
+
+		function myShift(myArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']){
+			myArr.shift();
+			return myArr;
+		}
+
+		function cetakHtml(myArr){
+			// Membersihkan halaman web
+			document.body.innerHTML = "";
+
+			document.write("Impelementasi pop() dan shift()<br>");
+			document.write("<ol>");
+			myArr.forEach((data) => {
+				document.write(`<li>${data}</li>`);
+			});
+			/*Array.prototype.forEach.call(myArr, data => {
+				document.write(`<li>${data}</li>`);
+			});*/
+			document.write("</ol>");
+		}
+
+		function myWhile(method){
+			var myArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+			if (method == "pop") {
+				var ulangi = confirm(`Jalankan Method ${method}?`);
+				
+				while(ulangi){
+					myArr = myPop(myArr);
+					cetakHtml(myArr);
+					ulangi = confirm("Jalankan lagi ?");
+					if (myArr.length < 1) {
+						document.write("myArr is empty");
+						break;
+					}
+				}
+			}else if(method == "shift"){
+				var ulangi = confirm(`Jalankan Method ${method}?`);
+
+				while(ulangi){
+					myArr = myShift(myArr);
+					cetakHtml(myArr);
+					ulangi = confirm("Jalankan lagi ?");
+					if (myArr.length < 1) {
+						document.write("myArr is empty");
+						break;
+					}
+				}
+			}else{
+				alert("Method is not recognized !");
+			}
+			// END of array Pop and array Shift
+
+
+		}
+	</script>
+</body>
+</html>

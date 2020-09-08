@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#9.2 Struktur Data | Methods in Array</title>
+</head>
+<body>
+	<button onclick="myFilter();">Mulai Filter</button>
+	<br>
+	<button onclick="myIncludes();">Mulai Includes</button>
+	<br>
+	<button onclick="mySort();">Mulai Sortir</button>
+	
+	<br><br>
+
+	<div id="output"></div>
+	<script>
+		var getOutputId = document.getElementById("output");
+		var output = "";
+		
+		const angka = [5, 4, 3, 2, 1, 6, 7, 8, 9, 10];
+
+		function myFilter(myAngka = angka){
+			
+			/*const filteredArray = angka.filter((data) =>{
+				return data % 2 == 0;
+			});*/
+			const filteredArray = myAngka.filter(data => data % 2 == 0 );
+
+			output += "[";
+			filteredArray.forEach((data) => {
+				output += `${data} `;
+			});
+			output += "]";
+			getOutputId.innerHTML = output;
+		}
+
+		// Contoh includes()
+		function myIncludes(myAngka = angka){
+			var ada8 = myAngka.includes(8);
+			alert("Angka 8 "+ada8);
+			var ada11 = myAngka.includes(11);
+			alert("Angka 11 "+ada11);
+
+		}
+
+		// Contoh sort()
+		function mySort(myAngka = angka){
+			var alfabet = ['A', 'C', 'D', 'B', 'H', 'G', 'I', 'J', 'M'];
+			var sortedAngka = myAngka.sort();
+			console.log(sortedAngka);
+			console.log(alfabet.sort());
+		}
+	</script>
+</body>
+</html>
