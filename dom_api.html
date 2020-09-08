@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#10.1 DOM API dan Metode Penjadwalan</title>
+</head>
+<body>
+	<div id="tutorial"></div>
+
+	<p class="paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Quo quaerat recusandae qui ullam eaque cumque ea fugit,
+        debitis commodi ipsum illo dolorum consequatur sed laudantium suscipit quis magni,
+        maiores in?</p>
+
+    <p class="paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Quo quaerat recusandae qui ullam eaque cumque ea fugit,
+        debitis commodi ipsum illo dolorum consequatur sed laudantium suscipit quis magni,
+        maiores in?</p>
+
+    <p class="paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Quo quaerat recusandae qui ullam eaque cumque ea fugit,
+        debitis commodi ipsum illo dolorum consequatur sed laudantium suscipit quis magni,
+        maiores in?</p>
+
+    <h2>Will Remove</h2>
+
+	<script>
+		// Contoh mengakses element via id
+		var tutorialId = document.getElementById("tutorial");
+		tutorial.innerText = "Test innerText";
+		tutorial.style.backgroundColor = "gold";
+		tutorial.style.padding = "10px";
+
+		var paragrafId = document.getElementsByClassName("paragraf"); // ambil ke tiga class paragraf
+		
+		// lihat console untuk melihat isi paragrafId lebih detail
+		console.log(paragrafId);
+
+		// akses dan modifikasi ketiga paragraf
+		/*for (let i = 0; i < paragrafId.length; i++) {
+			paragrafId[i].style.display="none";
+			document.write(paragrafId[i].innerText+"<hr>");
+		}*/
+
+		// Jalankan setiap 1 detik.
+		setInterval(function(){
+			paragrafId[0].style.color = "red";
+			paragrafId[1].style.color = "green";
+			paragrafId[2].style.color = "blue";
+
+			// jalankan sekali setelah 0.5 detik
+			setTimeout(function(){
+				paragrafId[0].style.color = "black";
+				paragrafId[1].style.color = "black";
+				paragrafId[2].style.color = "black";				
+			}, 500);
+		}, 1000);
+
+		// Test fungsi setTimeout
+		function sayHi(phrase, who) {
+		  alert( phrase + ', ' + who );
+		}
+		// setTimeout(sayHi, 1000, "Hello", "John");
+		setTimeout(() => alert('Hello John'), 1000); // this is better
+
+		// menciptakan elemen baru
+		var judul = document.createElement("h1");
+		// menambahkan text ke dalam tag h1
+		judul.textContent = "Bachtiar Muhammad Lubis";
+		// menempatkannya di dalam tag body
+		document.body.append(judul);
+
+		// menghapus spesifik element
+		var getHId = document.getElementsByTagName("h2");
+		console.log(getHId);
+		var removeEl = function(){
+			// menghapus <h2>
+			getHId[0].parentNode.removeChild(getHId[0]);
+			// menghapus id="tutorial"
+			tutorialId.remove();
+		}
+
+
+		setTimeout(removeEl, 2000);
+		
+	</script>
+</body>
+</html>
