@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#11 Objek di Javascript</title>
+</head>
+<body>
+	<script>
+		// Objek car
+		var car = {
+			// property
+			type : "Fiat",
+			model : 500,
+			color : "white",
+
+			// method
+			start: function(){
+				document.write("Ini method start <br>");
+			},
+			drive: function(){
+				document.write("Ini method drive <br>");
+			},
+			brake: function(){
+				document.write("Ini method brake <br>");
+			},
+			stop: function(){
+				document.write("Ini method stop <br>");
+			}
+		};
+
+		// Objek person
+		var person = {
+			firstName : "Bachtiar Muhammad",
+			lastName : "Lubis",
+			showName : function(){
+				alert(`Nama : ${this.firstName} ${this.lastName}`);
+			}
+		};
+
+		document.write("<h2>Ini adalah objek car dan person pada alert</h2><br>");
+		// Akses properti dan method objek
+		console.log(car.type);
+		car.start();
+		car.brake();
+		person.showName();
+
+		document.write("<hr>");
+
+		// Membuat Class dengan fungsi pada ES5
+		function ClassES5(firstName, lastName){
+			// properti
+			this.firstName = firstName;
+			this.lastName = lastName;
+
+			// method
+			this.fullName = function(){
+				return `${this.firstName} ${this.lastName}`;
+			}
+
+			this.showName = function(){
+				document.write(this.fullName());
+			}
+		}
+
+		// Membuat Objek ClassES5
+		var classES5 = new ClassES5("Bachtiar Muhammad", "Lubis");
+		var classES5 = new ClassES5("Bani", "Israil");
+
+		document.write("<h2>Ini adalah class ClassES5()</h2><br>");
+		// Mengakses method ClassES5
+		classES5.showName();
+		document.write("<br>");
+		classES5.showName();
+	</script>
+</body>
+</html>

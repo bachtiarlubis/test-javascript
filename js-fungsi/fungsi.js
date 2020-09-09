@@ -7,6 +7,7 @@ var dataBarang = [
 	"Penghapus"
 ];
 
+
 function showBarang(){
 	var listBarang = document.getElementById("list-barang");
 
