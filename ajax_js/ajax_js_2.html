@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#13.2 Ajax Javascript</title>
+</head>
+<body>
+	<h2>#13.2 Tutorial AJAX <button id="btn-clear" onclick="clearResult();">Clear</button></h2>
+	<pre>
+		<div id="output"></div>
+	</pre>
+	<button id="tombol" onclick="myAjax();">Load Content</button>
+
+	<script>
+		var myAjax = function() {
+			var xhr = new XMLHttpRequest();
+			var url = "https://api.github.com/users/petanikode";
+
+			// Fungsi dijalankan ketika request telah mulai memuat data.
+			xhr.onloadstart = function(){
+				document.getElementById("tombol").innerHTML = "Loading...";
+			};
+
+			// Fungsi dijalankan saat request menemui suatu error
+			xhr.onerror = function() {
+				alert("Gagal menambil datanya Bang !");
+			};
+
+			// Fungsi dijalankan setelah permintaan selesai, baik success ataupun dibatalkan
+			xhr.onloadend = function() {
+				if (this.responseText) {
+					console.log(this.responseText);
+					var data = JSON.parse(this.responseText);
+					var img = document.createElement("img"); // buat element baru
+					img.src = data.avatar_url; //isi value src = avatar_url value
+					var name = document.createElement("h3"); // buat element baru
+					name.innerHTML = data.name  //isi antara tag h3 = name value
+
+					document.getElementById("output").append(img, name); // letakkan elemen baru kedalam selector id output
+					document.getElementById("tombol").innerHTML = "Done !"; // ubah teks pada button
+
+					setTimeout(function(){
+						document.getElementById("tombol").innerHTML = "Load lagi";	
+					}, 1000);
+				}else{
+					console.log("onloadend gagal !");
+					document.getElementById("tombol").innerHTML = "Load Content";
+				}
+			};
+
+			xhr.open("GET", url, true);
+			xhr.send();
+		}
+
+		var clearResult = function() {
+			document.getElementById("output").innerHTML = "";
+		}
+	</script>
+</body>
+</html>

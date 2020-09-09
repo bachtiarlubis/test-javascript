@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#13.1 Ajax Javascript</title>
+</head>
+<body>
+	<h2>#13.1 Tutorial AJAX</h2>
+	<pre>
+		<div id="output"></div>
+	</pre>
+	<button onclick="myAjax();">Load Content</button>
+
+	<script>
+		function myAjax() {
+			var xhr = new XMLHttpRequest();
+			var url = "https://api.github.com/users/petanikode";
+			// onreadystatechange mendefenisikan fungsi untuk dieksekusi ketika readyState berubah.
+			xhr.onreadystatechange = function(){
+				console.log(this.readyState+" "+this.status);
+				// Apabila AJAX selesai dan status oke
+				if (this.readyState == 4 && this.status == 200) {
+
+					// Menerima respon data sebagai string
+					document.getElementById("output").innerHTML = this.responseText;
+				}
+			};
+			xhr.open("GET", url, true); // true berarti proses secara asynchronously
+			xhr.send();
+		}
+	</script>
+</body>
+</html>
