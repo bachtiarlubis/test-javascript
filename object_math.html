@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#12 Object Math</title>
+</head>
+<body>
+	<script>
+		// Fungsi trigonometri
+		console.log("Trigonometri");
+		var s = Math.sin(10);
+		var c = Math.cos(10);
+		var t = Math.tan(10);
+		console.log(s);
+		console.log(c);
+		console.log(t);
+
+		// Fungsi Logaritma
+		console.log("Logaritma");
+		var n = Math.log(10); //  ln(10) = ^elog(10) = y [e ≈ 2.71828183] => 2.71828183^y = 10
+		console.log(n);
+
+		// Fungsi pangkat
+		console.log("Pangkat");
+		var n = Math.pow(2, 4);
+		console.log(n);
+
+		// Fungsi Eksponensial e^n -> e = 2,71828183
+		console.log("Eksponensial");
+		var n = Math.exp(1);
+		var nn = Math.exp(2);
+		console.log(n);
+		console.log(nn);
+
+		// Fungsi pembulatan
+		console.log("Pembulatan");
+		var a = Math.floor(2.7); // kebawah
+		var b = Math.ceil(2.4); // keatas
+		var c = Math.round(2.5); // x >= 2.5 keatas
+		var d = Math.round(2.4); // x < 2.5 kebawah
+		console.log(a+" "+b+" "+c+" "+d);
+
+		// Fungsi Akar
+		console.log("Akar");
+		// Akar ^2
+		var a = Math.sqrt(25);
+		var b = Math.sqrt(81);
+		var c = Math.sqrt(15);
+		// Akar ^3
+		var d = Math.cbrt(125);
+		console.log(a+" "+b+" "+c);
+		console.log(d);
+		//  Akar ^nth
+		var e = Math.pow(625, 1/4); // akar 625 Pangkat 4
+		console.log(e);
+
+		// Fungsi Random
+		console.log("Random");
+		var a = Math.random();
+		console.log(a);
+		var randomInt = function(min, max){
+			return Math.floor(Math.random() * (max-min)) + min;
+		}
+		console.log(randomInt(1, 100));
+
+		// Fungsi absolut / mutlak
+		console.log("Absolut / Multak");
+		var a = Math.abs(-2);
+		console.log(a);
+
+		// Fungsi min dan max
+		console.log("Min dan Max");
+		var a = Math.min(3,4,1,5,6,0);
+		var b = Math.max(3,4,1,5,6,0);
+		// Apabila input array, pecah dengan operator ...
+		var c = Math.max(...[3,4,1,5,6,0]);
+		console.log(a+" "+b+" "+c);
+
+	</script>
+</body>
+</html>
