@@ -17,11 +17,14 @@
 		</p>
 		<input type="submit" name="submit" value="Kirim">
 	</form>
-
+	<pre>
+		<div id="output" style="margin-top:30px;"></div>
+	</pre>
 	<script>
 		// Pengiriman data ke url
 		var sendData = () => {
 			var xhr = new XMLHttpRequest();
+			// url hanya simulasi
 			var url = "https://jsonplaceholder.typicode.com/posts";
 
 			var data = JSON.stringify({
@@ -31,9 +34,11 @@
 			});
 
 			xhr.open("POST", url, true);
+			// Post Method wajib menggunakan setRequestHeader()
 			xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 			xhr.onload = function(){
 				console.log(this.responseText);
+				document.getElementById("output").innerHTML = this.responseText;
 			};
 			xhr.send(data);
 			return false;
