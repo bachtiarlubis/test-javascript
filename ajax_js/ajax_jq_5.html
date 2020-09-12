@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#15 Ajax jQuery</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<h1>Load Data dengan $.get()</h1>
+	<img id="avatar" width="100" height="100" alt="avatar_url">
+	<br>
+	<h3 id="name"></h3>
+	<p id="location"></p>
+	<br>
+	<button id="btn-process">Ambil data</button>
+
+	<script>
+		$("#btn-process").click(function(){
+			var url = "https://api.github.com/users/petanikode";
+			$.get(url, function(data, status){
+				$("#avatar").attr("src", data.avatar_url);
+				$("#name").text(data.name);
+				$("#location").text(data.location);
+				if (status == 'success') {
+					alert("Data berhasil dimuat !");
+				}
+			});
+		});
+	</script>
+</body>
+</html>
