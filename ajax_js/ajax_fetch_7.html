@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#17 Ajax Fetch</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<h1>Mengambil data dengan Fetch</h1>
+	<button id="btn-process">Load Content</button>
+
+	<div id="hasil"></div>
+
+
+	<script>
+		$("#btn-process").click(function(){
+			// Process fetch tidak perlu jQuery lib
+			// => -> berarti return
+			// param => -> berarti param paramter call back function
+			// => something -> berarti return something;
+			var url = "https://jsonplaceholder.typicode.com/posts/";
+			fetch(url)
+			.then(responKu => responKu.json())
+			.then(function(dataKu){
+				// templateku berisi text html hasi conversi dari objek json
+				var templateku = dataKu.map(postKu => {
+						return `
+						<h3>${postKu.title}</h3>
+						<p>${postKu.body}</p>
+						<hr>
+						`;
+					}
+				);
+				$("#hasil").html(templateku.join('<br>'));
+				console.log(dataKu[0].title);
+				console.log(dataKu);
+			}).catch(e =>
+				alert("Gagal mengambil data !")
+			);
+		});
+	</script>
+</body>
+</html>
