@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#19 Ajax Axios</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+	<h1>Tutorial AJAX dengan AXIOS</h1>
+	<button id="btn-process">Load Content</button>
+	
+	<div id="output"></div>
+
+	<script>
+		$("#btn-process").click(function(){
+			$("#btn-process").html("Loading...");
+			$("#btn-process").attr("disabled", "");
+
+			var url = "https://jsonplaceholder.typicode.com/posts/";
+			axios.get(url)
+				.then(function(responAxio){
+					var templateAxio = responAxio.data.map(
+							post => {
+								return `
+								<h3>${post.title}</h3>
+								<p>${post.body}</p>
+								`
+							}
+						).join("");
+					console.log(responAxio.data);
+					console.log(responAxio.data[0].title);
+					$("#output").html(templateAxio);
+				})
+				.catch(
+					e => console.log(e)
+				).then(()=>{
+					$("#btn-process").html("Done");
+					$("#btn-process").removeAttr("disabled");
+				});
+		});
+	</script>
+</body>
+</html>
