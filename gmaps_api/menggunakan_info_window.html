@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3.1 Tutorial Google Map - Bachtiar Lubis</title>
+	<!-- Library api google maps -->
+	<!-- <script src="http://maps.googleapis.com/maps/api/js"></script> -->
+	<style>
+		/*Set ukuran peta untuk ditampilkan*/
+		#google-map{
+			/*height: 100%;*/
+			width: 100%;
+			height: 380px;
+		}
+
+		/* Optional : Mmebuat halaman sampel mengisi window; */
+		/*html, body{
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}*/
+	</style>
+</head>
+<body>
+	<h2>Menggunakan Info Window untuk Menampilkan Informasi</h2>
+
+	<div id="google-map"></div>
+
+	<script>
+		function initMap(){
+			// membuat objek untuk titik koordinat
+			var pasid = {
+				lat : 1.373264,
+				lng : 99.273545
+			};
+
+			// Membuat objek properti peta
+			var propPeta = {
+				zoom : 9,
+				center : pasid
+			};
+
+			// Ambil id google-map
+			var getGmapId = document.getElementById("google-map");
+
+			// Membuat objek peta
+			var peta = new google.maps.Map(getGmapId, propPeta);
+
+			// Membuat konten untuk info window
+			var contentString = "<h2>Hello World !</h2>";
+
+			// Membuat objek properti window
+			var propWindow = {
+				content : contentString,
+				position : pasid
+			};
+			// Membuat objek info window
+			var infoWindow = new google.maps.InfoWindow(propWindow);
+
+			// Tampilkan info window pada peta
+			infoWindow.open(peta);
+
+		}
+	</script>
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+	
+</body>
+</html>

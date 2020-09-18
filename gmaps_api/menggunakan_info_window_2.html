@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3.2 Tutorial Google Map - Bachtiar Lubis</title>
+	<style>
+		/*Set ukuran peta untuk ditampilkan*/
+		#google-map{
+			width: 100%;
+			height: 380px;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<h2>Menggunakan Info Window dengan Marker</h2>
+
+	<div id="google-map"></div>
+
+	<script>
+		function initMap(){
+			// membuat objek untuk titik koordinat padangsidimpuan
+			var pasid = {
+				lat : 1.373264,
+				lng : 99.273545
+			};
+
+			// Membuat objek properti peta
+			var propPeta = {
+				zoom : 9,
+				center : pasid
+			};
+
+			// Ambil id google-map
+			var getGmapId = document.getElementById("google-map");
+
+			// Membuat objek peta
+			var peta = new google.maps.Map(getGmapId, propPeta);
+
+			// Membuat konten untuk info window (yang akan ditampilkan di info window)
+			var contentString = "<h2>Hello World !</h2>";
+
+			// Membuat objek properti window
+			var propWindow = {
+				content : contentString,
+				position : pasid
+			};
+			// Membuat objek info window
+			var infoWindow = new google.maps.InfoWindow(propWindow);
+
+			// Membuat objek properti marker
+			var propMarker = {
+				position : pasid,
+				map : peta,
+				title : "Kota Padangsidimpuan"
+			};
+			// Membuat marker
+			var marker = new google.maps.Marker(propMarker);
+
+			// Event saat marker diklik
+			marker.addListener('click', () => {
+				// Tampilkan info window pada peta
+				infoWindow.open(peta);
+			});
+
+		}
+	</script>
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+	<!--
+		Untuk eksperimen lebih lanjut, kita bisa:
+
+		1. Menambil data dari JSON lalu ditampilkan ke dalam Info Window;
+		2. Menampilkan gambar dan video di Info Window;
+		3. Menampilkan Tweet di info window berdasarkan koordinatnya.
+	-->
+</body>
+</html>
